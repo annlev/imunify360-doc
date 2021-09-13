@@ -41,6 +41,18 @@ Or restart the agent.
 Specifying IPs in those files will not prevent Imunify from adding the same IPs to dynamic lists (like Gray list), but all White lists always have the priority over Black lists when it comes to actual filtering of requests/packages.
 :::
 
+:::warning NB!
+IPs added via the external whitelist/blacklist won't be reflected via the Imunify360 UI (Firewall tab). Those neither will be returned using <span class="notranslate">`imunify360-agent`</span> command to list IP addresses as the Imunify agent cannot reflect them for now. Such IPs/subnets will be listed under _<span class="notranslate">i360.ipv4.whitelist.custom</span>_/_<span class="notranslate">i360.ipv4.blacklist.custom</span>_ in ipset.
+
+In order to confirm the certain IPs have been successfully added to the necessary list, please use the <span class="notranslate">`ipset list`</span> command:
+<div class="notranslate">
+
+```
+ipset list | grep -e ^Name -e ^11.22.33.44
+```
+</div>
+:::
+
 
 ## RapidScan
 
